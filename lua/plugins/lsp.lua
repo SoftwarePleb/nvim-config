@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "clangd", "sqls", "lua_ls", "csharp_ls", "gopls", "powershell_es", "marksman" },
+        ensure_installed = { "clangd", "sqlls", "lua_ls", "csharp_ls", "gopls", "powershell_es", "marksman" },
       })
     end,
   },
