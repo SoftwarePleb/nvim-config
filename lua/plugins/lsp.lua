@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "csharp_ls", "gopls", "clangd" },
+        ensure_installed = { "clangd", "sqls", "lua_ls", "csharp_ls", "gopls", "powershell_es", "marksman" },
       })
     end,
   },
@@ -19,10 +19,13 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
       lspconfig.clangd.setup({capabilities = capabilities })
+      lspconfig.powershell_es.setup({ bundle_path = "/home/leo/PowerShellEditorServices" })
       lspconfig.csharp_ls.setup({ capabilities = capabilities })
+      lspconfig.sqls.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
       lspconfig.tsserver.setup({ capabilities = capabilities })
+      lspconfig.marksman.setup({ capabilities = capabilities })
       vim.keymap.set("n", "gd", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "K", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
